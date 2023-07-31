@@ -1,0 +1,19 @@
+.hero{
+    width: 100%;
+    height: 1194px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    transition: all .8s;
+    padding: 20px;
+    padding-top: 150px;
+    @include flex($content: flex-start, $items: flex-start, $direction: column, $gap: 20px);
+
+    h1{
+        @include font(40px, 400, $white, $display)
+    }
+
+    p{
+       @include font(18px, 400, $white, $rubik) 
+    }
+}

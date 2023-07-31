@@ -8,4 +8,49 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
 }
+
+button{
+    cursor: pointer;
+}
   
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+// fonts
+
+$display: 'Playfair Display', serif;
+$mulish: 'Mulish', sans-serif;
+$rubik: 'Rubik', sans-serif;
+
+// colors
+
+$orange: #FF7757;
+$light-orange: #FFE8D4;
+$white: #FFFFFF;
+$black: #000000;
+$dark-blue: #172432;
+$dark-gray: #767E86;
+
+@mixin font($size, $weight, $color, $family){
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+    font-family: $family;
+}
+
+@mixin flex($content: center, $items: center, $direction:row, $gap:0px){
+    display: flex;
+    justify-content: $content;
+    align-items: $items;
+    flex-direction: $direction;
+    gap: $gap
+}
+
+@import 'header', 'hero';
+
+body{
+    background-color: $dark-blue;
+}
