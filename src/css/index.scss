@@ -49,8 +49,43 @@ $dark-gray: #767E86;
     gap: $gap
 }
 
-@import 'header', 'hero';
+@import 'header', 'hero', 'popular';
 
-body{
-    background-color: $dark-blue;
+.home{
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+h2.main-h2{
+    @include font(40px, 400, $dark-blue, $display);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+    @media screen and (min-width: 768px){
+        font-size: 54px;
+        width: 80%;
+    }
+
+    @media screen and (min-width: 1152px){
+        font-size: 64px;
+        width: 60%;
+    }
+
+    @media screen and (min-width: 1440px){
+        font-size: 84px;
+        width: 70%;
+    }
+
+    &.light{
+        color: $white;
+    }
+}
+
+p.main-paragraph{
+    @include font(18px, 400, $dark-gray,  $rubik);
+    @media screen and (min-width: 768px) {
+        width: 85%;
+        font-size: 20px;     
+    }
 }

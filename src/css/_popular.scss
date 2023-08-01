@@ -1,0 +1,17 @@
+.popular-destinations{
+    @include flex($direction: column, $gap: 25px, $items:flex-start);
+    margin-top: 50px;
+    padding: 20px;
+
+    .line{
+        width: 80%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: $orange;
+
+        @media screen and (min-width: 768px) {
+         width: 50%;   
+         height: 3px;
+        }
+    }
+}

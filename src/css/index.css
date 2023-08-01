@@ -28,6 +28,11 @@ header {
   top: 0;
   left: 0;
 }
+@media screen and (min-width: 1840px) {
+  header {
+    padding-left: 150px;
+  }
+}
 header .logo {
   width: 140px;
   -webkit-user-select: none;
@@ -60,6 +65,7 @@ nav {
   align-items: center;
   flex-direction: column;
   gap: 0px;
+  z-index: 12;
   background-color: #FFFFFF;
   width: 55%;
   height: 100vh;
@@ -101,6 +107,11 @@ nav {
     font-weight: 400;
     color: #FFFFFF;
     font-family: "Rubik", sans-serif;
+  }
+}
+@media screen and (min-width: 1840px) {
+  nav {
+    padding-right: 150px;
   }
 }
 nav .menu-container {
@@ -173,7 +184,7 @@ nav .login-buttons button {
 @media screen and (min-width: 1152px) {
   nav .login-buttons button {
     font-size: 20px;
-    height: 60px;
+    height: 50px;
   }
 }
 nav .login-buttons .login {
@@ -228,12 +239,27 @@ nav .login-buttons .sing-up:hover {
   flex-direction: column;
   gap: 20px;
 }
-.hero h1 {
-  font-size: 40px;
-  font-weight: 400;
-  color: #FFFFFF;
-  font-family: "Playfair Display", serif;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 789px;
+  }
+}
+@media screen and (min-width: 1152px) {
+  .hero {
+    padding: 150 40px 40px 40px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero {
+    height: 1020px;
+    gap: 50px;
+    padding-top: 200px;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .hero {
+    padding-left: 150px;
+  }
 }
 .hero p {
   font-size: 18px;
@@ -242,18 +268,114 @@ nav .login-buttons .sing-up:hover {
   font-family: "Rubik", sans-serif;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
 }
+@media screen and (min-width: 768px) {
+  .hero p {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 1152px) {
+  .hero p {
+    font-size: 24px;
+  }
+}
+.hero .bg-carrousel-control {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .hero .bg-carrousel-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0px;
+    position: absolute;
+    right: 20px;
+    top: 230px;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 1440px) {
+  .hero .bg-carrousel-control {
+    top: 280px;
+    right: 40px;
+  }
+}
+.hero .bg-carrousel-control .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  list-style: none;
+}
+.hero .bg-carrousel-control .slide .point {
+  background-color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.hero .bg-carrousel-control .slide .point.current {
+  background-color: #FF7757;
+}
+.hero .form-button {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0px;
+  width: 100%;
+  margin-top: 80px;
+}
+@media screen and (min-width: 768px) {
+  .hero .form-button {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .hero .form-button {
+    margin-left: -150px;
+  }
+}
 .hero .travel-info-form {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
-  margin-top: 80px;
   width: 100%;
   background-color: #FFFFFF;
-  border-radius: 20px;
-  overflow: hidden;
+  border-radius: 20px 20px 0 0;
   padding-top: 15px;
+  padding-bottom: 65px;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .hero .travel-info-form {
+    border-radius: 0;
+    margin-left: -20px;
+    width: 65%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 15px;
+    padding-right: 60px;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 1152px) {
+  .hero .travel-info-form {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    padding: 45px 60px 45px 20px;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .hero .travel-info-form {
+    padding-left: 150px;
+  }
 }
 .hero .travel-info-form .input-group {
   display: flex;
@@ -264,10 +386,6 @@ nav .login-buttons .sing-up:hover {
   padding: 15px;
   width: 100%;
   position: relative;
-  font-size: 14px;
-  font-weight: 400;
-  color: #172432;
-  font-family: "Rubik", sans-serif;
 }
 .hero .travel-info-form .input-group label {
   text-transform: uppercase;
@@ -275,6 +393,11 @@ nav .login-buttons .sing-up:hover {
   font-weight: 400;
   color: #767E86;
   font-family: "Rubik", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .hero .travel-info-form .input-group label {
+    font-size: 16px;
+  }
 }
 .hero .travel-info-form .input-group input, .hero .travel-info-form .input-group select {
   font-size: 14px;
@@ -285,6 +408,11 @@ nav .login-buttons .sing-up:hover {
   outline: none;
   border: none;
   border-bottom: 1px solid #000000;
+}
+@media screen and (min-width: 768px) {
+  .hero .travel-info-form .input-group input, .hero .travel-info-form .input-group select {
+    font-size: 16px;
+  }
 }
 .hero .travel-info-form .input-group .destinations-list {
   display: flex;
@@ -303,6 +431,16 @@ nav .login-buttons .sing-up:hover {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 33px 3px rgba(0, 0, 0, 0.125);
+  font-size: 14px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Rubik", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .hero .travel-info-form .input-group .destinations-list {
+    font-size: 16px;
+    z-index: 12;
+  }
 }
 .hero .travel-info-form .input-group .destinations-list li {
   width: 100%;
@@ -311,24 +449,121 @@ nav .login-buttons .sing-up:hover {
 .hero .travel-info-form .input-group .destinations-list li:hover {
   background-color: #f2f2f2;
 }
-.hero .travel-info-form .book-now-button {
+.hero .book-now-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   gap: 0px;
-  margin-top: 60px;
+  margin-top: -20px;
   background-color: #FF7757;
   border: none;
   outline: none;
   width: 100%;
   padding: 40px;
+  border-radius: 0 0 20px 20px;
   font-size: 36px;
   font-weight: 400;
   color: #FFFFFF;
   font-family: "Playfair Display", serif;
 }
+@media screen and (min-width: 768px) {
+  .hero .book-now-button {
+    width: 170px;
+    height: 100%;
+    margin-top: 0;
+    border-radius: 0 20px 20px 0;
+    padding: 40px 20px;
+  }
+}
+.hero .book-now-button:hover {
+  background-color: #ff886b;
+}
+.hero .book-now-button:active {
+  font-size: 35.5px;
+}
 
-body {
-  background-color: #172432;
+.popular-destinations {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 50px;
+  padding: 20px;
+}
+.popular-destinations h2 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #172432;
+  font-family: "Playfair Display", serif;
+}
+@media screen and (min-width: 768px) {
+  .popular-destinations h2 {
+    font-size: 54px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .popular-destinations h2 {
+    font-size: 64px;
+  }
+}
+.popular-destinations p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Rubik", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .popular-destinations p {
+    width: 85%;
+    font-size: 20px;
+  }
+}
+.popular-destinations .line {
+  width: 80%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #FF7757;
+}
+@media screen and (min-width: 768px) {
+  .popular-destinations .line {
+    width: 50%;
+    height: 3px;
+  }
+}
+
+.home {
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+h2.main-h2 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #172432;
+  font-family: "Playfair Display", serif;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+@media screen and (min-width: 768px) {
+  h2.main-h2 {
+    font-size: 54px;
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1152px) {
+  h2.main-h2 {
+    font-size: 64px;
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  h2.main-h2 {
+    font-size: 84px;
+    width: 70%;
+  }
+}
+h2.main-h2.light {
+  color: #FFFFFF;
 }/*# sourceMappingURL=index.css.map */

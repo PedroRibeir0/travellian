@@ -2,6 +2,7 @@
 import {useState, useEffect, useRef} from 'react'
 import Header from "../../components/Header";
 import Hero from './Hero'
+import Popular from './Popular';
 
 export default function Home() {
 
@@ -48,6 +49,7 @@ export default function Home() {
         menu={menu}
       />
       <Hero/>
+      <Popular/>
     </div>
   )
 }
