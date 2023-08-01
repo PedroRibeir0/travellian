@@ -8,6 +8,7 @@ export default function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const menu = useRef()
+    
     const handleMenuIconClick = ()=> setIsMenuOpen(true)
 
     useEffect(() => {
@@ -41,12 +42,12 @@ export default function Home() {
 
     return (
     <div className='home'>
-        <Header 
-            isMenuOpen={isMenuOpen} 
-            handleMenuIconClick={handleMenuIconClick}
-            menu={menu}
-        />
-        <Hero/>
+      <Header 
+        isMenuOpen={isMenuOpen} 
+        handleMenuIconClick={handleMenuIconClick}
+        menu={menu}
+      />
+      <Hero/>
     </div>
   )
 }
