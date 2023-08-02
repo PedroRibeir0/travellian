@@ -2,16 +2,59 @@
     @include flex($direction: column, $gap: 25px, $items:flex-start);
     margin-top: 50px;
     padding: 20px;
+    padding-right: 0;
 
-    .line{
-        width: 80%;
-        height: 2px;
-        border-radius: 2px;
-        background-color: $orange;
+    h2,p{
+        padding-right: 20px;
+    }
 
-        @media screen and (min-width: 768px) {
-         width: 50%;   
-         height: 3px;
+    .popular-carrousel{
+        overflow: hidden;
+        max-width: 100%;
+        margin-left: -20px;
+        
+
+        .inner-carrousel{
+            @include flex($items: flex-start, $content: flex-start, $gap: 0px);
+            list-style: none;
+            width: max-content;
+            transition: all 0.3s;
+
+            .carrousel-item{
+                padding-left: 20px;
+                width: max-content;
+                height: 320px;
+                position: relative;
+                margin: 20px 0;
+
+                img{
+                    border-radius: 20px;
+                    height: 320px;
+                    width: 288px;
+                    object-fit: cover;
+                }
+
+                .texts{
+                    position: absolute;
+                    bottom: 35px;
+                    left: 40px;
+                    @include flex($direction: column, $items: flex-start, $content: flex-start, $gap: 15px);
+
+                    
+                    .destination{
+                        @include font(24px, 500, $white, $display)
+                    }
+
+                    .location{
+                        @include flex($items: flex-start, $content: flex-start, $gap: 10px);
+                        @include font(18px, 400, $white, $rubik);
+                        .location-icon{
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

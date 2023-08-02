@@ -491,46 +491,72 @@ nav .login-buttons .sing-up:hover {
   gap: 25px;
   margin-top: 50px;
   padding: 20px;
+  padding-right: 0;
 }
-.popular-destinations h2 {
-  font-size: 40px;
-  font-weight: 400;
-  color: #172432;
+.popular-destinations h2, .popular-destinations p {
+  padding-right: 20px;
+}
+.popular-destinations .popular-carrousel {
+  overflow: hidden;
+  max-width: 100%;
+  margin-left: -20px;
+}
+.popular-destinations .popular-carrousel .inner-carrousel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 0px;
+  list-style: none;
+  width: -moz-max-content;
+  width: max-content;
+  transition: all 0.3s;
+}
+.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item {
+  padding-left: 20px;
+  width: -moz-max-content;
+  width: max-content;
+  height: 320px;
+  position: relative;
+  margin: 20px 0;
+}
+.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item img {
+  border-radius: 20px;
+  height: 320px;
+  width: 288px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts {
+  position: absolute;
+  bottom: 35px;
+  left: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts .destination {
+  font-size: 24px;
+  font-weight: 500;
+  color: #FFFFFF;
   font-family: "Playfair Display", serif;
 }
-@media screen and (min-width: 768px) {
-  .popular-destinations h2 {
-    font-size: 54px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .popular-destinations h2 {
-    font-size: 64px;
-  }
-}
-.popular-destinations p {
+.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts .location {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 10px;
   font-size: 18px;
   font-weight: 400;
-  color: #767E86;
+  color: #FFFFFF;
   font-family: "Rubik", sans-serif;
 }
-@media screen and (min-width: 768px) {
-  .popular-destinations p {
-    width: 85%;
-    font-size: 20px;
-  }
-}
-.popular-destinations .line {
-  width: 80%;
-  height: 2px;
-  border-radius: 2px;
-  background-color: #FF7757;
-}
-@media screen and (min-width: 768px) {
-  .popular-destinations .line {
-    width: 50%;
-    height: 3px;
-  }
+.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts .location .location-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .home {
@@ -540,6 +566,11 @@ nav .login-buttons .sing-up:hover {
 }
 
 h2.main-h2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: inherit;
+  flex-direction: column;
+  gap: 12px;
   font-size: 40px;
   font-weight: 400;
   color: #172432;
@@ -566,4 +597,44 @@ h2.main-h2 {
 }
 h2.main-h2.light {
   color: #FFFFFF;
+}
+h2.main-h2 .line {
+  width: 80%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #FF7757;
+}
+@media screen and (min-width: 768px) {
+  h2.main-h2 .line {
+    width: 60%;
+    height: 3px;
+  }
+}
+
+p.main-paragraph {
+  font-size: 18px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Rubik", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  p.main-paragraph {
+    width: 85%;
+    font-size: 20px;
+  }
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+  align-self: center;
+}
+.arrows img {
+  width: 60px;
+}
+.arrows img:active {
+  transform: scale(0.99);
 }/*# sourceMappingURL=index.css.map */

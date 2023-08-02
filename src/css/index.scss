@@ -59,9 +59,9 @@ $dark-gray: #767E86;
 
 
 h2.main-h2{
+    @include flex($direction: column, $items: inherit, $content: flex-start, $gap: 12px);
     @include font(40px, 400, $dark-blue, $display);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-
     @media screen and (min-width: 768px){
         font-size: 54px;
         width: 80%;
@@ -80,6 +80,18 @@ h2.main-h2{
     &.light{
         color: $white;
     }
+
+    .line{
+        width: 80%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: $orange;
+
+        @media screen and (min-width: 768px) {
+         width: 60%;   
+         height: 3px;
+        }
+    }
 }
 
 p.main-paragraph{
@@ -87,5 +99,16 @@ p.main-paragraph{
     @media screen and (min-width: 768px) {
         width: 85%;
         font-size: 20px;     
+    }
+}
+
+.arrows{
+    @include flex($gap: 40px);
+    align-self: center;
+    img{
+        width: 60px;
+        &:active{
+            transform: scale(0.99);
+        }
     }
 }
