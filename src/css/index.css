@@ -510,7 +510,7 @@ nav .login-buttons .sing-up:hover {
   list-style: none;
   width: -moz-max-content;
   width: max-content;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 .popular-destinations .popular-carrousel .inner-carrousel .carrousel-item {
   padding-left: 20px;

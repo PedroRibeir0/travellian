@@ -1,12 +1,18 @@
-import {useRef, useState} from 'react'
+import {useRef, useState, useEffect} from 'react'
 import MainH2 from '../../components/MainH2'
 import MainParagraph from '../../components/MainParagraph'
 import Arrows from '../../components/Arrows'
 
 export default function Popular() {
+  
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(()=>{
 
-  let width = window.innerWidth
+    const handleResize = ()=> setWidth(window.innerWidth)
 
+    window.addEventListener('load', handleResize)
+    window.addEventListener('resize', handleResize)
+  }, [])
   const [translate, setTranslate] = useState(0)
   const carrousel = useRef(null)
   const PopularDestInfo = [
@@ -42,6 +48,8 @@ export default function Popular() {
     },
   ]
 
+  console.log(width)
+
   function handleLeftArrowClick (){
     let itemWidth = carrousel.current.scrollWidth / PopularDestInfo.length
     if (translate >= 0) return
@@ -49,7 +57,8 @@ export default function Popular() {
   }
   function handleRightArrowClick (){
     let itemWidth = carrousel.current.scrollWidth / PopularDestInfo.length
-    if (translate <= -carrousel.current.scrollWidth + itemWidth)  return
+    let maxTranslate = -carrousel.current.scrollWidth + itemWidth
+    if (translate <= maxTranslate) return
     setTranslate(translate - itemWidth)
   }
 
@@ -60,6 +69,7 @@ export default function Popular() {
       <div className="popular-carrousel">
         <ul className='inner-carrousel' style={{transform: `translateX(${translate}px)`}} ref={carrousel}>
           {PopularDestInfo.map(item=>{
+            console.log(item)
             return(
               <li key={item.name} className='carrousel-item'>
                 <img src={`${item.img}-${width < 768 ? 'mobile' : width < 1152 ? 'tablet' : 'desktop'}.jpg`} alt="" />
