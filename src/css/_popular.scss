@@ -3,15 +3,25 @@
     margin-top: 50px;
     padding: 20px;
     padding-right: 0;
+    position: relative;
 
-    h2,p{
+    @media screen and (min-width: 1840px){
+        gap: 45px;
+    }
+
+    h2, p{
         padding-right: 20px;
+        @media screen and (min-width: 1840px){
+            padding-left: 150px;
+        }
     }
 
     .popular-carrousel{
         overflow: hidden;
         max-width: 100%;
-        margin-left: -20px;
+        @media screen and (min-width: 1840px){
+            margin-left: 150px;
+        }
         
         .inner-carrousel{
             @include flex($items: flex-start, $content: flex-start, $gap: 0px);
@@ -20,23 +30,38 @@
             transition: all 0.3s ease-in-out;
 
             .carrousel-item{
-                padding-left: 20px;
+                padding-right: 20px;
                 width: max-content;
-                height: 320px;
+                height: max-content;
                 position: relative;
-                margin: 20px 0;
+                margin: 25px 0;
+                transition: transform 0.2s;
+                cursor: pointer;
+                
+                &:hover{
+                    transform: scale(1.025);
+                }
 
                 img{
                     border-radius: 20px;
                     height: 320px;
                     width: 288px;
                     object-fit: cover;
+
+                    @media screen and (min-width: 768px) {
+                        width: 728px;
+                        height: 456px;
+                    }
+                    @media screen and (min-width: 1152px) {
+                        width: 497px;
+                        height: 661px;
+                    }
                 }
 
                 .texts{
                     position: absolute;
                     bottom: 35px;
-                    left: 40px;
+                    left: 20px;
                     @include flex($direction: column, $items: flex-start, $content: flex-start, $gap: 15px);
 
                     
@@ -54,6 +79,18 @@
                     }
                 }
             }
+        }
+    }
+
+    .arrows{
+        @media screen and (min-width: 1152px) {
+            position: absolute;
+            top: 110px;
+            right: 40px;
+        }
+        @media screen and (min-width: 1840px) {
+            top: 160px;
+            right: 150px;
         }
     }
 }

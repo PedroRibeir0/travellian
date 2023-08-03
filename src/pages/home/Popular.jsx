@@ -3,52 +3,46 @@ import MainH2 from '../../components/MainH2'
 import MainParagraph from '../../components/MainParagraph'
 import Arrows from '../../components/Arrows'
 
-export default function Popular() {
-  
-  const [width, setWidth] = useState(window.innerWidth)
-  useEffect(()=>{
+export default function Popular({width}) {
+  const media = width < 768 ? 'mobile' : width < 1152 ? 'tablet' : 'desktop'
 
-    const handleResize = ()=> setWidth(window.innerWidth)
 
-    window.addEventListener('load', handleResize)
-    window.addEventListener('resize', handleResize)
-  }, [])
+
   const [translate, setTranslate] = useState(0)
   const carrousel = useRef(null)
+
   const PopularDestInfo = [
     {
       name: 'Monument of Berlin',
       location: 'Berlin, Germany',
-      img: '/images/popular-dest/monument-of-berlin'
+      img: `/images/popular-dest/monument-of-berlin-${media}.jpg`
     },
     {
       name: 'Millennium Bridge',
       location: 'London, United Kingdom',
-      img: '/images/popular-dest/millennium-bridge'
+      img: `/images/popular-dest/millennium-bridge-${media}.jpg`
     },
     {
       name: 'Rialto Bridge',
       location: 'Venice, Italy',
-      img: '/images/popular-dest/rialto-bridge'
+      img: `/images/popular-dest/rialto-bridge-${media}.jpg`
     },
     {
       name: 'Cristo Redentor',
       location: 'Rio de Janeiro, Brazil',
-      img: '/images/popular-dest/cristo-redentor'
+      img: `/images/popular-dest/cristo-redentor-${media}.jpg`
     },
     {
       name: 'Sea of Orange Tiles',
       location: 'Lisbon, Portugal',
-      img: '/images/popular-dest/sea-of-orange-tiles'
+      img: `/images/popular-dest/sea-of-orange-tiles-${media}.jpg`
     },
     {
       name: 'Taj Mahal',
       location: 'Agra, India',
-      img: '/images/popular-dest/taj-mahal'
+      img: `/images/popular-dest/taj-mahal-${media}.jpg`
     },
   ]
-
-  console.log(width)
 
   function handleLeftArrowClick (){
     let itemWidth = carrousel.current.scrollWidth / PopularDestInfo.length
@@ -57,7 +51,7 @@ export default function Popular() {
   }
   function handleRightArrowClick (){
     let itemWidth = carrousel.current.scrollWidth / PopularDestInfo.length
-    let maxTranslate = -carrousel.current.scrollWidth + itemWidth
+    let maxTranslate = -carrousel.current.scrollWidth + itemWidth*(media == 'desktop' ? 2 : 1) 
     if (translate <= maxTranslate) return
     setTranslate(translate - itemWidth)
   }
@@ -69,10 +63,9 @@ export default function Popular() {
       <div className="popular-carrousel">
         <ul className='inner-carrousel' style={{transform: `translateX(${translate}px)`}} ref={carrousel}>
           {PopularDestInfo.map(item=>{
-            console.log(item)
             return(
               <li key={item.name} className='carrousel-item'>
-                <img src={`${item.img}-${width < 768 ? 'mobile' : width < 1152 ? 'tablet' : 'desktop'}.jpg`} alt="" />
+                <img src={item.img} alt="" />
                 <div className='texts'>
                   <span className='destination'>{item.name}</span>
                   <span className='location'>

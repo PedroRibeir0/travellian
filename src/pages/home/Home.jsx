@@ -8,9 +8,19 @@ export default function Home() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
+    const [width, setWidth] = useState(window.innerWidth)
+
     const menu = useRef()
     
     const handleMenuIconClick = ()=> setIsMenuOpen(true)
+
+    useEffect(()=>{
+
+      const handleResize = ()=> setWidth(window.innerWidth)
+  
+      window.addEventListener('load', handleResize)
+      window.addEventListener('resize', handleResize)
+    }, [width])
 
     useEffect(() => {
         if (!isMobile) return
@@ -41,6 +51,8 @@ export default function Home() {
         };
       }, []);
 
+
+
     return (
     <div className='home'>
       <Header 
@@ -48,8 +60,8 @@ export default function Home() {
         handleMenuIconClick={handleMenuIconClick}
         menu={menu}
       />
-      <Hero/>
-      <Popular/>
+      <Hero width={width}/>
+      <Popular width={width}/>
     </div>
   )
 }

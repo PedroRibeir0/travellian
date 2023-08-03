@@ -76,6 +76,10 @@ h2.main-h2{
         font-size: 84px;
         width: 70%;
     }
+    @media screen and (min-width: 1840px){
+        font-size: 84px;
+        width: 60%;
+    }
 
     &.light{
         color: $white;
@@ -90,6 +94,9 @@ h2.main-h2{
         @media screen and (min-width: 768px) {
          width: 60%;   
          height: 3px;
+        }
+        @media screen and (min-width: 1440px) {
+         width: 50%;   
         }
     }
 }
@@ -106,6 +113,7 @@ p.main-paragraph{
     @include flex($gap: 40px);
     align-self: center;
     img{
+        cursor: pointer;
         width: 60px;
         &:active{
             transform: scale(0.99);

@@ -1,19 +1,15 @@
 import { useState, useEffect } from "react"
 import { BsArrowRight } from 'react-icons/bs'
-import { LiaAngleDownSolid, LiaAngleUpSolid} from 'react-icons/lia'
 import Destinations from '../../components/Destinations'
-import { flushSync } from "react-dom"
 import MainH2 from "../../components/MainH2"
 
-export default function Hero() {
+export default function Hero({width}) {
   
   
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false)
   const [destinationInputText, setDestinationInputText] = useState('')
   const intervalTime = 4000
-  
-  let width = window.innerWidth
   
   const backgroundImages = [1,2,3,4].map(item=>{
     return `/images/home-bg/home-bg-${width <= 428 ? 'mobile' : width <= 1152 ? 'tablet' : 'desktop'}-${item}.jpg`
@@ -70,6 +66,7 @@ export default function Hero() {
             <div className="input-group">
               <label htmlFor="destination">Destination</label>
               <input
+              autoComplete="off"
               type="text"
               id="destination"
               value={destinationInputText}
@@ -79,7 +76,7 @@ export default function Hero() {
                 setIsDestinationsOpen(true)
               }}
               onBlur={()=> {
-                setTimeout(()=>setIsDestinationsOpen(false), 100)
+                setTimeout(()=>setIsDestinationsOpen(false), 200)
               }}/>
               <ul className="destinations-list"
                 style={{display: isDestinationsOpen ? 'flex' : 'none'}}>
