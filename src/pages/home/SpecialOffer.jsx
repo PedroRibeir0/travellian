@@ -2,8 +2,11 @@ import Carrousel from "../../components/Carrousel";
 import MainH2 from "../../components/MainH2";
 import MainParagraph from "../../components/MainParagraph";
 import {AiFillStar} from 'react-icons/ai'
+import { BsArrowRight } from 'react-icons/bs'
 
-export default function SpecialOffer() {
+export default function SpecialOffer({width}) {
+
+  const isCarrousel = width < 1152
 
   const specialOffersInfo = [
     {
@@ -27,7 +30,28 @@ export default function SpecialOffer() {
       stars: 5,
       img: '/images/special-offers/rome.jpg'
     },
-  ]
+  ].map(item=>{
+    return (
+      <li 
+      key={item.local} className={'carrousel-item'} 
+      style={{width: isCarrousel && window.innerWidth-40}}>
+        <img src={item.img} alt={item.local} />
+        <div className="texts">
+          <h3>{item.local}</h3>
+          <ul className="stars-container">
+            {stars(item.stars)}
+          </ul>
+          <p>{item.description}</p>
+          <div className="details">
+            <span className="price">
+              <span className="from">From</span>
+              {`€${item.price}`}
+            </span>
+            <button className="details-button">Details</button>
+          </div>
+        </div>
+      </li>
+  )})
 
   function stars(number_of_stars){
     const starList = Array.from(
@@ -46,30 +70,16 @@ export default function SpecialOffer() {
     <section className="special-offer">
         <MainH2 text={'Special Offer'} line/>
         <MainParagraph text={'Check out our special offer and discounts'}/>
+        {!isCarrousel && 
+        <button className="all-offers-button">
+          <span>See all offers</span>
+          <BsArrowRight className="arrow"/>
+        </button>}
         <div className="offers-carrousel">
-        <Carrousel
-          item_list={specialOffersInfo.map(item=>{
-            return (
-              <li key={item.local} className="carrousel-item" style={{width: window.innerWidth-40}}>
-                <img src={item.img} alt={item.local} />
-                <div className="texts">
-                  <h3>{item.local}</h3>
-                  <ul className="stars-container">
-                    {stars(item.stars)}
-                  </ul>
-                  <p>{item.description}</p>
-                  <div className="details">
-                    <span className="price">
-                      <span className="from">From</span>
-                      {`€${item.price}`}
-                    </span>
-                    <button className="details-button">Details</button>
-                  </div>
-                </div>
-              </li>
-            )
-          })}
-        />
+        {width < 1152 ? <Carrousel item_list={specialOffersInfo}/> : 
+        <ul className="offers-desktop-list">
+          {specialOffersInfo}
+        </ul>}
         </div>
     </section>
   )

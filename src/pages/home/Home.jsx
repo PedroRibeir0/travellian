@@ -63,7 +63,7 @@ export default function Home() {
       />
       <Hero width={width}/>
       <Popular width={width}/>
-      <SpecialOffer/>
+      <SpecialOffer width={width}/>
     </div>
   )
 }

@@ -6,6 +6,42 @@
     margin-top: 80px;
     padding: 20px;
     position: relative;
+    max-width: 100%;
+
+    @media screen and (min-width: 1152px){
+        align-items: flex-end;
+    }
+    @media screen and (min-width: 1840px){
+        gap: 45px;
+        align-items: flex-end;
+        padding-right: 150px;
+    }
+
+    p.main-paragraph{
+        @media screen and (min-width: 1152px){
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    }
+
+    .all-offers-button{
+        @include font(24px, 400, $orange, $rubik);
+        @include flex($gap: 10px);        
+        background-color: transparent;
+        text-transform: capitalize;
+        border: none;
+        outline: none;
+        transition: gap 0.15s ease;
+        margin-bottom: 10px;
+        position: relative;
+        right: 20px;
+        &:hover{
+            .arrow{
+                transition: transform 0.2s ease;
+                transform: translateX(10px);
+            }
+        }
+    }
 
     .carrousel{
         margin-bottom: 100px;
@@ -18,6 +54,7 @@
         border-radius: 26px;
         overflow: hidden;
 
+
         img{
             width: 100%;
             height: 286px;
@@ -28,6 +65,7 @@
             padding: 30px 20px;
             @include flex($direction: column, $items: flex-start, $gap: 10px);
             background-color: $light-orange;
+
             .stars-container{
                 @include flex($items: flex-start, $content: flex-start, $gap: 5px);
                 list-style: none;
@@ -66,6 +104,8 @@
                     @include font(32px, 400, $orange, $rubik);
                     .from{
                         @include font(18px, 400, $dark-gray, $rubik);   
+
+
                     }
                 }
 
@@ -76,13 +116,32 @@
                     padding: 16px 24px;
                     border-radius: 12px;
                     @include font(20px, 400, $white, $rubik);
+
+                    &:hover{
+                        background-color: lighten($color: $orange, $amount: 4);
+                    }
+
+                    &:active{
+                        transform: scale(0.985);
+                    }
                 }
 
             }
         }
+    }
 
+    .offers-desktop-list{
+        @include flex($content: space-between);
+        width: 100%;   
 
+        @media screen and (min-width: 1840px){
+            padding-left: 150px;
+        }
 
+        .carrousel-item{
+            max-width: 32%;
+            margin-right: 0;
+        }
     }
 
     .arrows{
@@ -91,4 +150,5 @@
         transform: translateX(-50%);
         bottom: 0;
     }
+
 }

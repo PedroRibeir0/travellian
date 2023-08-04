@@ -52,6 +52,7 @@ $dark-gray: #767E86;
 @import 'header', 'hero', 'carrousel', 'popular', 'special-offer';
 
 .home{
+    width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     position: relative;
@@ -79,6 +80,7 @@ h2.main-h2{
     @media screen and (min-width: 1840px){
         font-size: 84px;
         width: 60%;
+        padding-left: 150px;
     }
 
     &.light{
@@ -106,6 +108,10 @@ p.main-paragraph{
     @media screen and (min-width: 768px) {
         width: 85%;
         font-size: 20px;     
+    }
+    @media screen and (min-width: 1840px){
+        width: 60%;
+        padding-left: 150px;
     }
 }
 

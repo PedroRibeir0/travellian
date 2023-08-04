@@ -527,11 +527,6 @@ nav .login-buttons .sing-up:hover {
 .popular-destinations h2, .popular-destinations p {
   padding-right: 20px;
 }
-@media screen and (min-width: 1840px) {
-  .popular-destinations h2, .popular-destinations p {
-    padding-left: 150px;
-  }
-}
 .popular-destinations .carrousel-item {
   padding-right: 20px;
   width: -moz-max-content;
@@ -659,6 +654,48 @@ nav .login-buttons .sing-up:hover {
   margin-top: 80px;
   padding: 20px;
   position: relative;
+  max-width: 100%;
+}
+@media screen and (min-width: 1152px) {
+  .special-offer {
+    align-items: flex-end;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .special-offer {
+    gap: 45px;
+    align-items: flex-end;
+    padding-right: 150px;
+  }
+}
+@media screen and (min-width: 1152px) {
+  .special-offer p.main-paragraph {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+}
+.special-offer .all-offers-button {
+  font-size: 24px;
+  font-weight: 400;
+  color: #FF7757;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  background-color: transparent;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  transition: gap 0.15s ease;
+  margin-bottom: 10px;
+  position: relative;
+  right: 20px;
+}
+.special-offer .all-offers-button:hover .arrow {
+  transition: transform 0.2s ease;
+  transform: translateX(10px);
 }
 .special-offer .carrousel {
   margin-bottom: 100px;
@@ -763,6 +800,29 @@ nav .login-buttons .sing-up:hover {
   color: #FFFFFF;
   font-family: "Rubik", sans-serif;
 }
+.special-offer .carrousel-item .texts .details .details-button:hover {
+  background-color: #ff886b;
+}
+.special-offer .carrousel-item .texts .details .details-button:active {
+  transform: scale(0.985);
+}
+.special-offer .offers-desktop-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 0px;
+  width: 100%;
+}
+@media screen and (min-width: 1840px) {
+  .special-offer .offers-desktop-list {
+    padding-left: 150px;
+  }
+}
+.special-offer .offers-desktop-list .carrousel-item {
+  max-width: 32%;
+  margin-right: 0;
+}
 .special-offer .arrows {
   position: absolute;
   left: 50%;
@@ -771,6 +831,7 @@ nav .login-buttons .sing-up:hover {
 }
 
 .home {
+  width: 100%;
   max-width: 1920px;
   margin: 0 auto;
   position: relative;
@@ -810,6 +871,7 @@ h2.main-h2 {
   h2.main-h2 {
     font-size: 84px;
     width: 60%;
+    padding-left: 150px;
   }
 }
 h2.main-h2.light {
@@ -843,6 +905,12 @@ p.main-paragraph {
   p.main-paragraph {
     width: 85%;
     font-size: 20px;
+  }
+}
+@media screen and (min-width: 1840px) {
+  p.main-paragraph {
+    width: 60%;
+    padding-left: 150px;
   }
 }
 
