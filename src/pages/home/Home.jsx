@@ -3,6 +3,7 @@ import {useState, useEffect, useRef} from 'react'
 import Header from "../../components/Header";
 import Hero from './Hero'
 import Popular from './Popular';
+import SpecialOffer from './SpecialOffer';
 
 export default function Home() {
 
@@ -62,6 +63,7 @@ export default function Home() {
       />
       <Hero width={width}/>
       <Popular width={width}/>
+      <SpecialOffer/>
     </div>
   )
 }

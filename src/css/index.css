@@ -485,7 +485,30 @@ nav .login-buttons .sing-up:hover {
   font-size: 35.5px;
 }
 
+.carrousel {
+  overflow-x: hidden;
+  max-width: 100%;
+  margin: 45px 0;
+}
+@media screen and (min-width: 1840px) {
+  .carrousel {
+    margin-left: 150px;
+  }
+}
+.carrousel .inner-carrousel {
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 0px;
+  list-style: none;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .popular-destinations {
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -509,41 +532,23 @@ nav .login-buttons .sing-up:hover {
     padding-left: 150px;
   }
 }
-.popular-destinations .popular-carrousel {
-  overflow: hidden;
-  max-width: 100%;
-}
-@media screen and (min-width: 1840px) {
-  .popular-destinations .popular-carrousel {
-    margin-left: 150px;
-  }
-}
-.popular-destinations .popular-carrousel .inner-carrousel {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: row;
-  gap: 0px;
-  list-style: none;
-  width: -moz-max-content;
-  width: max-content;
-  transition: all 0.3s ease-in-out;
-}
-.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item {
+.popular-destinations .carrousel-item {
   padding-right: 20px;
   width: -moz-max-content;
   width: max-content;
   height: -moz-max-content;
   height: max-content;
   position: relative;
-  margin: 25px 0;
   transition: transform 0.2s;
   cursor: pointer;
 }
-.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item:hover {
-  transform: scale(1.025);
+.popular-destinations .carrousel-item:hover .texts .read-more-button {
+  display: flex;
 }
-.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item img {
+.popular-destinations .carrousel-item:hover .texts {
+  animation: upText 0.27s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.popular-destinations .carrousel-item img {
   border-radius: 20px;
   height: 320px;
   width: 288px;
@@ -551,18 +556,18 @@ nav .login-buttons .sing-up:hover {
      object-fit: cover;
 }
 @media screen and (min-width: 768px) {
-  .popular-destinations .popular-carrousel .inner-carrousel .carrousel-item img {
+  .popular-destinations .carrousel-item img {
     width: 728px;
     height: 456px;
   }
 }
 @media screen and (min-width: 1152px) {
-  .popular-destinations .popular-carrousel .inner-carrousel .carrousel-item img {
+  .popular-destinations .carrousel-item img {
     width: 497px;
     height: 661px;
   }
 }
-.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts {
+.popular-destinations .carrousel-item .texts {
   position: absolute;
   bottom: 35px;
   left: 20px;
@@ -572,13 +577,13 @@ nav .login-buttons .sing-up:hover {
   flex-direction: column;
   gap: 15px;
 }
-.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts .destination {
+.popular-destinations .carrousel-item .texts .destination {
   font-size: 24px;
   font-weight: 500;
   color: #FFFFFF;
   font-family: "Playfair Display", serif;
 }
-.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts .location {
+.popular-destinations .carrousel-item .texts .location {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -589,22 +594,180 @@ nav .login-buttons .sing-up:hover {
   color: #FFFFFF;
   font-family: "Rubik", sans-serif;
 }
-.popular-destinations .popular-carrousel .inner-carrousel .carrousel-item .texts .location .location-icon {
+.popular-destinations .carrousel-item .texts .location .location-icon {
   width: 24px;
   height: 24px;
 }
+.popular-destinations .carrousel-item .texts .read-more-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 15px;
+  display: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #FFFFFF;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-family: "Rubik", sans-serif;
+}
+.popular-destinations .carrousel-item .texts .read-more-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.popular-destinations .carrousel-item .texts .read-more-button:hover .arrow {
+  transition: all 0.2s;
+  transform: rotate(90deg);
+}
+.popular-destinations .carrousel-item .texts .read-more-button:active {
+  transform: scale(0.995);
+}
+
 @media screen and (min-width: 1152px) {
-  .popular-destinations .arrows {
+  .arrows {
     position: absolute;
     top: 110px;
     right: 40px;
   }
 }
 @media screen and (min-width: 1840px) {
-  .popular-destinations .arrows {
+  .arrows {
     top: 160px;
     right: 150px;
   }
+}
+
+@keyframes upText {
+  0% {
+    transform: translateY(60px);
+  }
+}
+.special-offer {
+  margin-bottom: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  margin-top: 80px;
+  padding: 20px;
+  position: relative;
+}
+.special-offer .carrousel {
+  margin-bottom: 100px;
+}
+.special-offer .carrousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0px;
+  max-width: 728px;
+  margin-right: 20px;
+  border-radius: 26px;
+  overflow: hidden;
+}
+.special-offer .carrousel-item img {
+  width: 100%;
+  height: 286px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.special-offer .carrousel-item .texts {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff8f1;
+}
+.special-offer .carrousel-item .texts .stars-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 5px;
+  list-style: none;
+}
+.special-offer .carrousel-item .texts .stars-container .star {
+  width: 24px;
+  color: rgb(255, 193, 7);
+  font-size: 20px;
+}
+.special-offer .carrousel-item .texts h3 {
+  font-size: 28px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Mulish", sans-serif;
+}
+.special-offer .carrousel-item .texts p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #172432;
+  font-family: "Rubik", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .special-offer .carrousel-item .texts p {
+    font-size: 18px;
+  }
+}
+.special-offer .carrousel-item .texts .details {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+@media screen and (min-width: 768px) {
+  .special-offer .carrousel-item .texts .details {
+    margin-top: 30px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.special-offer .carrousel-item .texts .details .price {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 32px;
+  font-weight: 400;
+  color: #FF7757;
+  font-family: "Rubik", sans-serif;
+}
+.special-offer .carrousel-item .texts .details .price .from {
+  font-size: 18px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Rubik", sans-serif;
+}
+.special-offer .carrousel-item .texts .details .details-button {
+  background-color: #FF7757;
+  border: none;
+  outline: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-family: "Rubik", sans-serif;
+}
+.special-offer .arrows {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
 }
 
 .home {

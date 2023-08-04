@@ -1,4 +1,5 @@
 .popular-destinations{
+    overflow: hidden;
     @include flex($direction: column, $gap: 25px, $items:flex-start);
     margin-top: 50px;
     padding: 20px;
@@ -16,71 +17,88 @@
         }
     }
 
-    .popular-carrousel{
-        overflow: hidden;
-        max-width: 100%;
-        @media screen and (min-width: 1840px){
-            margin-left: 150px;
-        }
+    .carrousel-item{
+        padding-right: 20px;
+        width: max-content;
+        height: max-content;
+        position: relative;
+        transition: transform 0.2s;
+        cursor: pointer;
         
-        .inner-carrousel{
-            @include flex($items: flex-start, $content: flex-start, $gap: 0px);
-            list-style: none;
-            width: max-content;
-            transition: all 0.3s ease-in-out;
+        &:hover{
+            .texts .read-more-button{
+                display: flex;
+            }
 
-            .carrousel-item{
-                padding-right: 20px;
-                width: max-content;
-                height: max-content;
-                position: relative;
-                margin: 25px 0;
-                transition: transform 0.2s;
-                cursor: pointer;
+            .texts{
+                animation: upText .27s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+        }
+
+            img{
+                border-radius: 20px;
+                height: 320px;
+                width: 288px;
+                object-fit: cover;
+
+                @media screen and (min-width: 768px) {
+                    width: 728px;
+                    height: 456px;
+                }
+                @media screen and (min-width: 1152px) {
+                    width: 497px;
+                    height: 661px;
+                }
+            }
+
+            .texts{
+                position: absolute;
+                bottom: 35px;
+                left: 20px;
+                @include flex($direction: column, $items: flex-start, $content: flex-start, $gap: 15px);
                 
-                &:hover{
-                    transform: scale(1.025);
+                .destination{
+                    @include font(24px, 500, $white, $display);
                 }
 
-                img{
-                    border-radius: 20px;
-                    height: 320px;
-                    width: 288px;
-                    object-fit: cover;
-
-                    @media screen and (min-width: 768px) {
-                        width: 728px;
-                        height: 456px;
-                    }
-                    @media screen and (min-width: 1152px) {
-                        width: 497px;
-                        height: 661px;
+                .location{
+                    @include flex($items: flex-start, $content: flex-start, $gap: 10px);
+                    @include font(18px, 400, $white, $rubik);
+                    .location-icon{
+                        width: 24px;
+                        height: 24px;
                     }
                 }
 
-                .texts{
-                    position: absolute;
-                    bottom: 35px;
-                    left: 20px;
-                    @include flex($direction: column, $items: flex-start, $content: flex-start, $gap: 15px);
+                .read-more-button{
+                    @include flex($gap: 10px);
+                    margin-top: 15px;
+                    display: none;
+                    outline: none;
+                    border: none;
+                    background-color: transparent;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    border: 1px solid $white;
+                    @include font(20px, 400, $white, $rubik);
 
-                    
-                    .destination{
-                        @include font(24px, 500, $white, $display)
-                    }
+                    &:hover{
+                        background-color: transparentize($color: $white, $amount: .8);
 
-                    .location{
-                        @include flex($items: flex-start, $content: flex-start, $gap: 10px);
-                        @include font(18px, 400, $white, $rubik);
-                        .location-icon{
-                            width: 24px;
-                            height: 24px;
+                        .arrow{
+                            transition: all .2s;
+                            transform: rotate(90deg);
                         }
+                    }
+
+                    &:active{
+                        transform: scale(0.995);
                     }
                 }
             }
         }
     }
+    
 
     .arrows{
         @media screen and (min-width: 1152px) {
@@ -92,5 +110,11 @@
             top: 160px;
             right: 150px;
         }
+    }
+
+
+@keyframes upText {
+    0%{
+        transform: translateY(60px);
     }
 }

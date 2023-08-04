@@ -1,0 +1,23 @@
+.carrousel{
+    overflow-x: hidden;
+    max-width: 100%;
+    margin: 45px 0;
+    @media screen and (min-width: 1840px){
+        margin-left: 150px;
+    }
+    
+    .inner-carrousel{
+        transition: all 0.3s ease-in-out;
+        @include flex($items: flex-start, $content: flex-start, $gap: 0px);
+        list-style: none;
+        width: max-content;
+
+        // .carrousel-item{
+        //     width: max-content;
+        //     height: max-content;
+        //     position: relative;
+        //     transition: transform 0.2s;
+        //     cursor: pointer;
+        // }
+    }
+}
