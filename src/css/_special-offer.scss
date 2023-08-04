@@ -24,23 +24,9 @@
         }
     }
 
-    .all-offers-button{
-        @include font(24px, 400, $orange, $rubik);
-        @include flex($gap: 10px);        
-        background-color: transparent;
-        text-transform: capitalize;
-        border: none;
-        outline: none;
-        transition: gap 0.15s ease;
-        margin-bottom: 10px;
+    .see-more-button{
         position: relative;
         right: 20px;
-        &:hover{
-            .arrow{
-                transition: transform 0.2s ease;
-                transform: translateX(10px);
-            }
-        }
     }
 
     .carrousel{
@@ -150,5 +136,4 @@
         transform: translateX(-50%);
         bottom: 0;
     }
-
 }

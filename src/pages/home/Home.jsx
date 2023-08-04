@@ -4,6 +4,8 @@ import Header from "../../components/Header";
 import Hero from './Hero'
 import Popular from './Popular';
 import SpecialOffer from './SpecialOffer';
+import Blog from './Blog';
+import TripPlanners from './TripPlanners';
 
 export default function Home() {
 
@@ -64,6 +66,8 @@ export default function Home() {
       <Hero width={width}/>
       <Popular width={width}/>
       <SpecialOffer width={width}/>
+      <Blog width={width}/>
+      <TripPlanners width={width}/>
     </div>
   )
 }

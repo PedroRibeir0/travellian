@@ -1,8 +1,8 @@
 import Carrousel from "../../components/Carrousel";
 import MainH2 from "../../components/MainH2";
 import MainParagraph from "../../components/MainParagraph";
+import SeeMoreButton from "../../components/SeeMoreButton";
 import {AiFillStar} from 'react-icons/ai'
-import { BsArrowRight } from 'react-icons/bs'
 
 export default function SpecialOffer({width}) {
 
@@ -70,11 +70,7 @@ export default function SpecialOffer({width}) {
     <section className="special-offer">
         <MainH2 text={'Special Offer'} line/>
         <MainParagraph text={'Check out our special offer and discounts'}/>
-        {!isCarrousel && 
-        <button className="all-offers-button">
-          <span>See all offers</span>
-          <BsArrowRight className="arrow"/>
-        </button>}
+        {!isCarrousel && <SeeMoreButton text={'see all offers'}/>}
         <div className="offers-carrousel">
         {width < 1152 ? <Carrousel item_list={specialOffersInfo}/> : 
         <ul className="offers-desktop-list">

@@ -1,0 +1,26 @@
+.trip-planners{
+    @include flex($direction: column, $items: flex-start);
+    padding: 20px;
+    .texts{
+        @include flex($direction: column, $items: flex-start, $gap: 25px);
+
+        .trip-planners-button{
+            background-color: $orange;
+            outline: none;
+            border: none;
+            padding: 20px;
+            border-radius: 12px;
+            position: relative;
+            z-index: 22;
+            @include font(18px, 400, $white, $rubik);
+
+            &:hover{
+                background-color: lighten($color: $orange, $amount: 4);
+            }
+
+            &:active{
+                transform: scale(0.99);
+            }
+        }
+    }
+}
