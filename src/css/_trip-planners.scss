@@ -1,25 +1,150 @@
 .trip-planners{
-    @include flex($direction: column, $items: flex-start);
+    @include flex($direction: column, $items: flex-start, $gap: 60px);
     padding: 20px;
+
+    @media screen and (min-width: 1152px){
+        flex-direction: row;
+        overflow: hidden;
+        padding-right: 0;
+    }
+
+    @media screen and (min-width: 1840px){
+        gap: 45px;
+    }
+
     .texts{
         @include flex($direction: column, $items: flex-start, $gap: 25px);
 
+        @media screen and (min-width: 1152px){
+            width: 50%;
+        }
+
         .trip-planners-button{
-            background-color: $orange;
+            @include flex();
+            background-color: transparent;
+            margin-top: 25px;
             outline: none;
             border: none;
-            padding: 20px;
-            border-radius: 12px;
             position: relative;
-            z-index: 22;
+            padding: 16px;
+            cursor: default;
             @include font(18px, 400, $white, $rubik);
 
-            &:hover{
-                background-color: lighten($color: $orange, $amount: 4);
+            span{
+                border-radius: 12px;
+                padding: 20px;
+                background-color: $orange;
+                z-index: 2;
+
+                &:hover{
+                    background-color: lighten($color: $orange, $amount: 4);
+                }
+
+                &:active{
+                    transform: scale(0.99);
+                }
             }
 
-            &:active{
-                transform: scale(0.99);
+            .top-square{
+                align-self: flex-start;
+                background-color: $dark-blue;
+                width: 43px;
+                height: 43px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .bottom-square{
+                align-self: flex-end;
+                background-color: $dark-gray;
+                width: 43px;
+                height: 43px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+
+            @media screen and (min-width: 1840px){
+                margin-left: 150px;
+            }
+        }
+    }
+
+    .planners-container{
+        @include flex();
+        width: 100%;
+
+        @media screen and (min-width: 1152px){
+            width: 50%;
+            overflow: hidden;
+            justify-content: flex-start;
+            border-radius: 23px;
+        }
+    
+        
+
+        .planners-list{
+            list-style: none;
+            @include flex($direction: column, $gap: 60px);
+            width: 100%;
+
+            @media screen and (min-width: 1152px){
+                flex-direction: row;
+                width: max-content;
+            }
+
+            @media screen and (min-width: 1152px){
+                gap: 80px;
+            }
+        
+            
+            .planner{
+                @include flex($direction: column, $gap: 20px);
+                width: max-content;
+
+                img{
+                    border-radius: 23px;
+                    pointer-events: none;
+                }
+
+                .planner-info{
+                    width: 100%;
+                    @include flex($direction: column, $items: flex-start, $gap: 8px);
+                    @include font(18px, 400, $dark-blue, $rubik);
+
+                    @media screen and (min-width: 768px){
+                        font-size: 24px;
+                        gap: 12px;
+                    }
+
+                    @media screen and (min-width: 1152px){
+                        font-size: 18px;
+                    }
+
+                    .tour-price, .stars-days{
+                        width: 100%;
+                        @include flex($content: space-between);
+
+                        .tour{
+                            text-transform: uppercase;
+                        }
+                        .stars{
+                            list-style: none;
+                            @include flex($gap: 5px);
+                            color: $yellow;
+                        }
+                    }
+
+                    .tour-local{
+                        text-transform: capitalize;
+                        @include font(28px, 600, $dark-blue, $display);
+
+                        @media screen and (min-width: 768px){
+                            font-size: 32px;
+                        }
+                    }
+                }
             }
         }
     }

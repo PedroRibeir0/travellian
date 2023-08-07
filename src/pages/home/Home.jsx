@@ -6,6 +6,7 @@ import Popular from './Popular';
 import SpecialOffer from './SpecialOffer';
 import Blog from './Blog';
 import TripPlanners from './TripPlanners';
+import {AiFillStar} from 'react-icons/ai'
 
 export default function Home() {
 
@@ -54,7 +55,18 @@ export default function Home() {
         };
       }, []);
 
-
+    function stars(number_of_stars){
+      const starList = Array.from(
+      { length: (number_of_stars - 1) / 1 + 1 },
+      (i, index) => 1 + index * 1
+      );
+      return starList.map((item, mapI)=>{
+        return( 
+        <li className="star" key={mapI}>
+          <AiFillStar className="star"/>
+        </li>)
+      })
+    }
 
     return (
     <div className='home'>
@@ -65,9 +77,9 @@ export default function Home() {
       />
       <Hero width={width}/>
       <Popular width={width}/>
-      <SpecialOffer width={width}/>
+      <SpecialOffer width={width} stars={stars}/>
       <Blog width={width}/>
-      <TripPlanners width={width}/>
+      <TripPlanners width={width} stars={stars}/>
     </div>
   )
 }

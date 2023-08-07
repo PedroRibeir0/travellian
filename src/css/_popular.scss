@@ -81,11 +81,6 @@
 
                     &:hover{
                         background-color: transparentize($color: $white, $amount: .8);
-
-                        .arrow{
-                            transition: all .2s;
-                            transform: rotate(90deg);
-                        }
                     }
 
                     &:active{

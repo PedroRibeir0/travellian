@@ -54,7 +54,6 @@ export default function Hero({width}) {
         <div className="bg-carrousel-control">
           <ul className="slide">{backgroundImages.map((item, index)=> 
             <li 
-              onClick={e=> setCurrentIndex(e.target.id)}
               id={index}
               key={index} 
               className={`point ${currentIndex == index ? 'current' : ''}`}>

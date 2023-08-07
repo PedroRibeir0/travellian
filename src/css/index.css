@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400,600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 * {
@@ -261,6 +261,12 @@ nav .login-buttons .sing-up:hover {
     padding-left: 150px;
   }
 }
+@media screen and (min-width: 1840px) {
+  .hero h2.main-h2 {
+    padding-left: 0px;
+    font-size: 84px;
+  }
+}
 .hero p {
   font-size: 18px;
   font-weight: 400;
@@ -313,7 +319,6 @@ nav .login-buttons .sing-up:hover {
   height: 16px;
   border-radius: 50%;
   transition: all 0.5s;
-  cursor: pointer;
 }
 .hero .bg-carrousel-control .slide .point.current {
   background-color: #FF7757;
@@ -615,10 +620,6 @@ nav .login-buttons .sing-up:hover {
 .popular-destinations .carrousel-item .texts .read-more-button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
-.popular-destinations .carrousel-item .texts .read-more-button:hover .arrow {
-  transition: all 0.2s;
-  transform: rotate(90deg);
-}
 .popular-destinations .carrousel-item .texts .read-more-button:active {
   transform: scale(0.995);
 }
@@ -891,8 +892,20 @@ nav .login-buttons .sing-up:hover {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  gap: 0px;
+  gap: 60px;
   padding: 20px;
+}
+@media screen and (min-width: 1152px) {
+  .trip-planners {
+    flex-direction: row;
+    overflow: hidden;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .trip-planners {
+    gap: 45px;
+  }
 }
 .trip-planners .texts {
   display: flex;
@@ -901,24 +914,168 @@ nav .login-buttons .sing-up:hover {
   flex-direction: column;
   gap: 25px;
 }
+@media screen and (min-width: 1152px) {
+  .trip-planners .texts {
+    width: 50%;
+  }
+}
 .trip-planners .texts .trip-planners-button {
-  background-color: #FF7757;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0px;
+  background-color: transparent;
+  margin-top: 25px;
   outline: none;
   border: none;
-  padding: 20px;
-  border-radius: 12px;
   position: relative;
-  z-index: 22;
+  padding: 16px;
+  cursor: default;
   font-size: 18px;
   font-weight: 400;
   color: #FFFFFF;
   font-family: "Rubik", sans-serif;
 }
-.trip-planners .texts .trip-planners-button:hover {
+.trip-planners .texts .trip-planners-button span {
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #FF7757;
+  z-index: 2;
+}
+.trip-planners .texts .trip-planners-button span:hover {
   background-color: #ff886b;
 }
-.trip-planners .texts .trip-planners-button:active {
+.trip-planners .texts .trip-planners-button span:active {
   transform: scale(0.99);
+}
+.trip-planners .texts .trip-planners-button .top-square {
+  align-self: flex-start;
+  background-color: #172432;
+  width: 43px;
+  height: 43px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.trip-planners .texts .trip-planners-button .bottom-square {
+  align-self: flex-end;
+  background-color: #767E86;
+  width: 43px;
+  height: 43px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+@media screen and (min-width: 1840px) {
+  .trip-planners .texts .trip-planners-button {
+    margin-left: 150px;
+  }
+}
+.trip-planners .planners-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0px;
+  width: 100%;
+}
+@media screen and (min-width: 1152px) {
+  .trip-planners .planners-container {
+    width: 50%;
+    overflow: hidden;
+    justify-content: flex-start;
+    border-radius: 23px;
+  }
+}
+.trip-planners .planners-container .planners-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+}
+@media screen and (min-width: 1152px) {
+  .trip-planners .planners-container .planners-list {
+    flex-direction: row;
+    width: -moz-max-content;
+    width: max-content;
+  }
+}
+@media screen and (min-width: 1152px) {
+  .trip-planners .planners-container .planners-list {
+    gap: 80px;
+  }
+}
+.trip-planners .planners-container .planners-list .planner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: -moz-max-content;
+  width: max-content;
+}
+.trip-planners .planners-container .planners-list .planner img {
+  border-radius: 23px;
+  pointer-events: none;
+}
+.trip-planners .planners-container .planners-list .planner .planner-info {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #172432;
+  font-family: "Rubik", sans-serif;
+}
+@media screen and (min-width: 768px) {
+  .trip-planners .planners-container .planners-list .planner .planner-info {
+    font-size: 24px;
+    gap: 12px;
+  }
+}
+@media screen and (min-width: 1152px) {
+  .trip-planners .planners-container .planners-list .planner .planner-info {
+    font-size: 18px;
+  }
+}
+.trip-planners .planners-container .planners-list .planner .planner-info .tour-price, .trip-planners .planners-container .planners-list .planner .planner-info .stars-days {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 0px;
+}
+.trip-planners .planners-container .planners-list .planner .planner-info .tour-price .tour, .trip-planners .planners-container .planners-list .planner .planner-info .stars-days .tour {
+  text-transform: uppercase;
+}
+.trip-planners .planners-container .planners-list .planner .planner-info .tour-price .stars, .trip-planners .planners-container .planners-list .planner .planner-info .stars-days .stars {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+  color: rgb(255, 193, 7);
+}
+.trip-planners .planners-container .planners-list .planner .planner-info .tour-local {
+  text-transform: capitalize;
+  font-size: 28px;
+  font-weight: 600;
+  color: #172432;
+  font-family: "Playfair Display", serif;
+}
+@media screen and (min-width: 768px) {
+  .trip-planners .planners-container .planners-list .planner .planner-info .tour-local {
+    font-size: 32px;
+  }
 }
 
 .home {
@@ -954,13 +1111,11 @@ h2.main-h2 {
 }
 @media screen and (min-width: 1440px) {
   h2.main-h2 {
-    font-size: 84px;
     width: 70%;
   }
 }
 @media screen and (min-width: 1840px) {
   h2.main-h2 {
-    font-size: 84px;
     width: 60%;
     padding-left: 150px;
   }

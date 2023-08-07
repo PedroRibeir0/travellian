@@ -56,7 +56,7 @@ export default function Popular({width}) {
                 <span>{item.location}</span>
               </span>
               <button className='read-more-button'>
-
+                Read More
               </button>
             </div>
           </li>)

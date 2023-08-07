@@ -2,9 +2,8 @@ import Carrousel from "../../components/Carrousel";
 import MainH2 from "../../components/MainH2";
 import MainParagraph from "../../components/MainParagraph";
 import SeeMoreButton from "../../components/SeeMoreButton";
-import {AiFillStar} from 'react-icons/ai'
 
-export default function SpecialOffer({width}) {
+export default function SpecialOffer({width, stars}) {
 
   const isCarrousel = width < 1152
 
@@ -52,19 +51,6 @@ export default function SpecialOffer({width}) {
         </div>
       </li>
   )})
-
-  function stars(number_of_stars){
-    const starList = Array.from(
-    { length: (number_of_stars - 1) / 1 + 1 },
-    (i, index) => 1 + index * 1
-    );
-    return starList.map(item=>{
-      return( 
-      <li className="star">
-        <AiFillStar className="star"/>
-      </li>)
-    })
-  }
 
   return (
     <section className="special-offer">
