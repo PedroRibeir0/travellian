@@ -942,6 +942,7 @@ nav .login-buttons .sing-up:hover {
   padding: 20px;
   background-color: #FF7757;
   z-index: 2;
+  cursor: pointer;
 }
 .trip-planners .texts .trip-planners-button span:hover {
   background-color: #ff886b;
@@ -985,14 +986,14 @@ nav .login-buttons .sing-up:hover {
     width: 50%;
     overflow: hidden;
     justify-content: flex-start;
-    border-radius: 23px;
+    border-radius: 23px 0 0;
   }
 }
 .trip-planners .planners-container .planners-list {
   list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
   gap: 60px;
   width: 100%;
@@ -1002,11 +1003,12 @@ nav .login-buttons .sing-up:hover {
     flex-direction: row;
     width: -moz-max-content;
     width: max-content;
+    transition: transform 1s ease;
   }
 }
 @media screen and (min-width: 1152px) {
   .trip-planners .planners-container .planners-list {
-    gap: 80px;
+    gap: 0px;
   }
 }
 .trip-planners .planners-container .planners-list .planner {
@@ -1018,17 +1020,29 @@ nav .login-buttons .sing-up:hover {
   width: -moz-max-content;
   width: max-content;
 }
-.trip-planners .planners-container .planners-list .planner img {
-  border-radius: 23px;
-  pointer-events: none;
+@media screen and (min-width: 1152px) {
+  .trip-planners .planners-container .planners-list .planner {
+    margin-right: 80px;
+  }
 }
-.trip-planners .planners-container .planners-list .planner .planner-info {
-  width: 100%;
+.trip-planners .planners-container .planners-list .planner.selected .planner-info {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   gap: 8px;
+}
+.trip-planners .planners-container .planners-list .planner img {
+  border-radius: 23px;
+  pointer-events: none;
+}
+.trip-planners .planners-container .planners-list .planner .planner-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
   font-size: 18px;
   font-weight: 400;
   color: #172432;
@@ -1043,6 +1057,7 @@ nav .login-buttons .sing-up:hover {
 @media screen and (min-width: 1152px) {
   .trip-planners .planners-container .planners-list .planner .planner-info {
     font-size: 18px;
+    display: none;
   }
 }
 .trip-planners .planners-container .planners-list .planner .planner-info .tour-price, .trip-planners .planners-container .planners-list .planner .planner-info .stars-days {

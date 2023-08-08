@@ -1,7 +1,6 @@
 import MainH2 from "../../components/MainH2";
 import MainParagraph from "../../components/MainParagraph";
-import {motion} from 'framer-motion'
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function TripPlanners({width, stars}) {
 
@@ -51,7 +50,25 @@ export default function TripPlanners({width, stars}) {
       img: `/images/trip-planners/london-planner-${media}.jpg`
     },
   ]
-  const dragCarrousel = useRef()
+
+  const [selected, setSelected] = useState(0)
+  const [translate, setTranslate] = useState(0)
+  const tripCarrousel = useRef(null)
+
+  useEffect(()=>{
+    function handleInterval(){
+      const itemWidth = tripCarrousel.current.scrollWidth / tripPlannersInfo.length
+      if(selected == tripPlannersInfo.length-1){
+        setSelected(0), setTranslate(0)
+        return
+      }
+      setSelected(selected + 1)
+      setTranslate(translate - itemWidth)
+    }
+    const tripCarrouselInterval = setInterval(handleInterval, 3000)
+
+    return ()=> clearInterval(tripCarrouselInterval)
+  }, [selected])
 
   return (
     <section className="trip-planners">
@@ -64,38 +81,26 @@ export default function TripPlanners({width, stars}) {
               <div className="bottom-square"></div>
             </button>
         </div>
-        <motion.div className="planners-container">
-          <motion.ul
-            ref={dragCarrousel}
-            className="planners-list" 
-            drag={width >= 1152 ? 'x' : ''}
-            whileDrag={{cursor: 'grabbing'}}
-            whileHover={{cursor: 'grab'}}
-            dragConstraints={{
-              left: -1310,
-              right: 0
-            }}
-            dragElastic={0.2}
-          >
-            {tripPlannersInfo.map(item=>{
-              return (
-              <motion.li className="planner" key={item.local}>
-                <img src={item.img} alt={item.local} />
-                <div className="planner-info">
-                  <div className="tour-price">
-                    <span className="tour">guided tour</span>
-                    <span className="days">{`€${item.price}/Day`}</span>
-                  </div>
-                  <span className="tour-local">{`${item.local} city tour`}</span>
-                  <div className="stars-days">
-                    <ul className="stars">{stars(item.stars)}</ul>
-                    <span>{`${item.days} Days tour`}</span>
-                  </div>
+        <div className="planners-container" ref={tripCarrousel}>
+          <ul className="planners-list" style={{transform: `translateX(${translate}px)`}}>
+            {tripPlannersInfo.map((item, index)=>{
+            return (
+            <li className={`planner ${index == selected && 'selected'}`} key={item.local}>
+              <img src={item.img} alt={item.local} />
+              <div className="planner-info">
+                <div className="tour-price">
+                  <span className="tour">guided tour</span>
+                  <span className="days">{`€${item.price}/Day`}</span>
                 </div>
-              </motion.li>
-            )})}
-          </motion.ul>
-        </motion.div>
+                <span className="tour-local">{`${item.local} city tour`}</span>
+                <div className="stars-days">
+                  <ul className="stars">{stars(item.stars)}</ul>
+                  <span>{`${item.days} Days tour`}</span>
+                </div>
+              </div>
+            </li>)})}
+          </ul>
+        </div>
     </section>
   )
 }

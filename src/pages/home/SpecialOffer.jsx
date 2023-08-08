@@ -54,7 +54,7 @@ export default function SpecialOffer({width, stars}) {
 
   return (
     <section className="special-offer">
-        <MainH2 text={'Special Offer'} line/>
+        <MainH2 text={'Special Offers'} line/>
         <MainParagraph text={'Check out our special offer and discounts'}/>
         {!isCarrousel && <SeeMoreButton text={'see all offers'}/>}
         <div className="offers-carrousel">

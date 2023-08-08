@@ -35,6 +35,7 @@
                 padding: 20px;
                 background-color: $orange;
                 z-index: 2;
+                cursor: pointer;
 
                 &:hover{
                     background-color: lighten($color: $orange, $amount: 4);
@@ -79,29 +80,38 @@
             width: 50%;
             overflow: hidden;
             justify-content: flex-start;
-            border-radius: 23px;
+            border-radius: 23px 0 0;
         }
     
-        
-
         .planners-list{
             list-style: none;
-            @include flex($direction: column, $gap: 60px);
+            @include flex($direction: column, $gap: 60px, $items: flex-end);
             width: 100%;
+            
 
             @media screen and (min-width: 1152px){
                 flex-direction: row;
                 width: max-content;
+                transition: transform 1s ease;
             }
 
             @media screen and (min-width: 1152px){
-                gap: 80px;
+                gap: 0px;
             }
-        
             
             .planner{
                 @include flex($direction: column, $gap: 20px);
                 width: max-content;
+
+                @media screen and (min-width: 1152px){
+                    margin-right: 80px;
+                }
+
+                &.selected{
+                    .planner-info{
+                        @include flex($direction: column, $items: flex-start, $gap: 8px);
+                    }
+                }
 
                 img{
                     border-radius: 23px;
@@ -109,8 +119,8 @@
                 }
 
                 .planner-info{
-                    width: 100%;
                     @include flex($direction: column, $items: flex-start, $gap: 8px);
+                    width: 100%;
                     @include font(18px, 400, $dark-blue, $rubik);
 
                     @media screen and (min-width: 768px){
@@ -120,6 +130,7 @@
 
                     @media screen and (min-width: 1152px){
                         font-size: 18px;
+                        display: none;
                     }
 
                     .tour-price, .stars-days{

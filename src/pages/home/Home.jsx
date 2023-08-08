@@ -79,7 +79,7 @@ export default function Home() {
       <Popular width={width}/>
       <SpecialOffer width={width} stars={stars}/>
       <Blog width={width}/>
-      <TripPlanners width={width} stars={stars}/>
+      <TripPlanners width={width} stars={stars} isMobile={isMobile}/>
     </div>
   )
 }
