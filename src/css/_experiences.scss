@@ -1,0 +1,49 @@
+.experiences{
+    @include flex($direction: column, $items: flex-start, $gap: 25px);
+    padding: 20px;
+    overflow-x: hidden;
+
+    @media screen and (min-width: 1840px){
+        gap: 45px;
+    }
+    .carrousel{
+        margin-top: 100px;
+    }
+
+    .carrousel-item{
+        @include flex($direction: column, $items: flex-start, $gap: 15px);
+        width: calc(100vw - 40px);
+        max-width: 500px;
+        background-color: lighten($color: $dark-gray, $amount: 47);
+        padding: 60px 40px 40px 40px;
+        border-radius: 12px;
+        margin-right: 20px;
+        position: relative;
+
+        .avatar{
+            position: absolute;
+            left: 40px;
+            top: -55px;
+            z-index: 123;
+        }
+
+        .msg, .user-occupation{
+            @include font(18px, 400, $dark-gray, $rubik)
+        }
+
+        .stars{
+            @include flex($gap: 10px);
+            list-style: none;
+            color: $yellow;
+            font-size: 24px;
+        }
+
+        .user-info{
+            @include flex($direction: column, $items: flex-start, $gap: 5px);
+
+            .user-name{
+                @include font(24px, 400, $dark-gray, $display)
+            }
+        }
+    }
+}

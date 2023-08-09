@@ -1,0 +1,53 @@
+.gallery{
+    @include flex($direction: column, $items: flex-start, $gap: 25px);
+    padding: 20px;
+    overflow: hidden;
+    margin-bottom: 100px;
+
+    @media screen and (min-width: 1152px){
+        padding-bottom: 40px;
+    }
+
+    @media screen and (min-width: 1840px){
+        gap: 45px;
+    }
+
+    .see-more-button{
+        @media screen and (min-width: 1840px){
+            margin-left: 150px;
+        }
+    }
+    
+    .gallery-list{
+        @include flex($direction: column, $gap: 15px, $content: flex-start);
+        list-style: none;
+        margin-top: 40px;
+        width: 100%;
+
+        @media screen and (min-width: 1152px){
+            flex-direction: row;
+        }
+        @media screen and (min-width: 1840px){
+            margin-left: 150px;
+            gap: 25px;
+        }
+
+        .gallery-item{
+            img{
+                width: 100%;
+                object-fit: cover;
+                max-width: 768px;
+                border-radius: 26px;
+            }
+
+            &:nth-child(odd){
+                @media screen and (min-width: 1152px){
+                    position: relative;
+                    top: 30px;
+                }
+            }
+
+
+        }
+    }
+}

@@ -491,7 +491,6 @@ nav .login-buttons .sing-up:hover {
 }
 
 .carrousel {
-  overflow-x: hidden;
   max-width: 100%;
   margin: 45px 0;
 }
@@ -510,6 +509,7 @@ nav .login-buttons .sing-up:hover {
   list-style: none;
   width: -moz-max-content;
   width: max-content;
+  overflow-y: visible;
 }
 
 .popular-destinations {
@@ -894,6 +894,7 @@ nav .login-buttons .sing-up:hover {
   flex-direction: column;
   gap: 60px;
   padding: 20px;
+  margin-bottom: 100px;
 }
 @media screen and (min-width: 1152px) {
   .trip-planners {
@@ -973,6 +974,38 @@ nav .login-buttons .sing-up:hover {
     margin-left: 150px;
   }
 }
+.trip-planners .texts .slide {
+  display: none;
+}
+@media screen and (min-width: 1152px) {
+  .trip-planners .texts .slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 32px;
+    list-style: none;
+    margin-top: 40px;
+  }
+}
+@media screen and (min-width: 1152px) and (min-width: 1840px) {
+  .trip-planners .texts .slide {
+    margin-left: 150px;
+  }
+}
+@media screen and (min-width: 1152px) {
+  .trip-planners .texts .slide .point {
+    width: 15px;
+    height: 15px;
+    background-color: #d5d7da;
+    border-radius: 50%;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .trip-planners .texts .slide .point.selected {
+    background-color: #FF7757;
+  }
+}
 .trip-planners .planners-container {
   display: flex;
   justify-content: center;
@@ -993,7 +1026,7 @@ nav .login-buttons .sing-up:hover {
   list-style: none;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: column;
   gap: 60px;
   width: 100%;
@@ -1003,7 +1036,8 @@ nav .login-buttons .sing-up:hover {
     flex-direction: row;
     width: -moz-max-content;
     width: max-content;
-    transition: transform 1s ease;
+    transition: transform 0.5s ease-in;
+    align-items: flex-end;
   }
 }
 @media screen and (min-width: 1152px) {
@@ -1031,6 +1065,12 @@ nav .login-buttons .sing-up:hover {
   align-items: flex-start;
   flex-direction: column;
   gap: 8px;
+}
+.trip-planners .planners-container .planners-list .planner.selected img {
+  animation: imageUp 0.5s ease-in-out;
+}
+.trip-planners .planners-container .planners-list .planner:not(.selected) {
+  animation: imageDown 0.5s linear;
 }
 .trip-planners .planners-container .planners-list .planner img {
   border-radius: 23px;
@@ -1091,6 +1131,146 @@ nav .login-buttons .sing-up:hover {
   .trip-planners .planners-container .planners-list .planner .planner-info .tour-local {
     font-size: 32px;
   }
+}
+
+@keyframes imageUp {
+  0% {
+    transform: translateY(98px);
+  }
+}
+@keyframes imageDown {
+  0% {
+    transform: translateY(-98px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  overflow: hidden;
+  margin-bottom: 100px;
+}
+@media screen and (min-width: 1152px) {
+  .gallery {
+    padding-bottom: 40px;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .gallery {
+    gap: 45px;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .gallery .see-more-button {
+    margin-left: 150px;
+  }
+}
+.gallery .gallery-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  list-style: none;
+  margin-top: 40px;
+  width: 100%;
+}
+@media screen and (min-width: 1152px) {
+  .gallery .gallery-list {
+    flex-direction: row;
+  }
+}
+@media screen and (min-width: 1840px) {
+  .gallery .gallery-list {
+    margin-left: 150px;
+    gap: 25px;
+  }
+}
+.gallery .gallery-list .gallery-item img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 768px;
+  border-radius: 26px;
+}
+@media screen and (min-width: 1152px) {
+  .gallery .gallery-list .gallery-item:nth-child(odd) {
+    position: relative;
+    top: 30px;
+  }
+}
+
+.experiences {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  overflow-x: hidden;
+}
+@media screen and (min-width: 1840px) {
+  .experiences {
+    gap: 45px;
+  }
+}
+.experiences .carrousel {
+  margin-top: 100px;
+}
+.experiences .carrousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  width: calc(100vw - 40px);
+  max-width: 500px;
+  background-color: #f5f6f6;
+  padding: 60px 40px 40px 40px;
+  border-radius: 12px;
+  margin-right: 20px;
+  position: relative;
+}
+.experiences .carrousel-item .avatar {
+  position: absolute;
+  left: 40px;
+  top: -55px;
+  z-index: 123;
+}
+.experiences .carrousel-item .msg, .experiences .carrousel-item .user-occupation {
+  font-size: 18px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Rubik", sans-serif;
+}
+.experiences .carrousel-item .stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  list-style: none;
+  color: rgb(255, 193, 7);
+  font-size: 24px;
+}
+.experiences .carrousel-item .user-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
+}
+.experiences .carrousel-item .user-info .user-name {
+  font-size: 24px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Playfair Display", serif;
 }
 
 .home {

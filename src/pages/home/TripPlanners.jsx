@@ -56,7 +56,12 @@ export default function TripPlanners({width, stars}) {
   const tripCarrousel = useRef(null)
 
   useEffect(()=>{
+    if (width < 1152){
+      setTranslate(0)
+      setSelected(0)
+    }
     function handleInterval(){
+
       const itemWidth = tripCarrousel.current.scrollWidth / tripPlannersInfo.length
       if(selected == tripPlannersInfo.length-1){
         setSelected(0), setTranslate(0)
@@ -80,6 +85,21 @@ export default function TripPlanners({width, stars}) {
               <span>View all trip planners</span>
               <div className="bottom-square"></div>
             </button>
+            <ul className="slide">
+              {tripPlannersInfo.map((item, index)=>{
+                return <li 
+                  className={`point ${index == selected && 'selected'}`} 
+                  id={index}
+                  onClick={(e)=>{
+                    let id = parseInt(e.target.id)
+                    setSelected(id)
+                    setTranslate(
+                      -(tripCarrousel.current.scrollWidth / tripPlannersInfo.length) * id
+                    )
+                  }}
+                  ></li>
+              })}
+            </ul>
         </div>
         <div className="planners-container" ref={tripCarrousel}>
           <ul className="planners-list" style={{transform: `translateX(${translate}px)`}}>

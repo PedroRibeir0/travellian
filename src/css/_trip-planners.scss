@@ -1,6 +1,7 @@
 .trip-planners{
     @include flex($direction: column, $items: flex-start, $gap: 60px);
     padding: 20px;
+    margin-bottom: 100px;
 
     @media screen and (min-width: 1152px){
         flex-direction: row;
@@ -70,6 +71,32 @@
                 margin-left: 150px;
             }
         }
+
+        .slide{
+            display: none;
+            @media screen and (min-width: 1152px){
+                @include flex($items: flex-start, $gap:32px);
+                list-style: none;
+                margin-top: 40px;
+            @media screen and (min-width: 1840px){
+                margin-left: 150px;
+            }
+
+                .point{
+                    width: 15px;
+                    height: 15px;
+                    background-color: lighten($color:  $dark-gray, $amount: 35);
+                    border-radius: 50%;
+                    transition: all .2s;
+                    cursor: pointer;
+
+                    &.selected{
+                        background-color: $orange
+                    }
+                }
+                
+            }
+        }
     }
 
     .planners-container{
@@ -85,14 +112,14 @@
     
         .planners-list{
             list-style: none;
-            @include flex($direction: column, $gap: 60px, $items: flex-end);
+            @include flex($direction: column, $gap: 60px);
             width: 100%;
-            
 
             @media screen and (min-width: 1152px){
                 flex-direction: row;
                 width: max-content;
-                transition: transform 1s ease;
+                transition: transform .5s ease-in;
+                align-items: flex-end;
             }
 
             @media screen and (min-width: 1152px){
@@ -111,6 +138,13 @@
                     .planner-info{
                         @include flex($direction: column, $items: flex-start, $gap: 8px);
                     }
+                    img{
+                        animation: imageUp .5s ease-in-out;
+                    }
+                }
+
+                &:not(.selected){
+                    animation: imageDown .5s linear;
                 }
 
                 img{
@@ -158,5 +192,20 @@
                 }
             }
         }
+    }
+}
+
+@keyframes imageUp {
+    0%{
+        transform: translateY(98px);
+    }
+}
+@keyframes imageDown {
+    0%{
+        transform: translateY(-98px);
+    }
+
+    100%{
+        transform: translateY(0px);
     }
 }

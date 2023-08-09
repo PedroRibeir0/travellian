@@ -7,6 +7,8 @@ import SpecialOffer from './SpecialOffer';
 import Blog from './Blog';
 import TripPlanners from './TripPlanners';
 import {AiFillStar} from 'react-icons/ai'
+import Gallery from './Gallery';
+import Experiences from './Experiences.JSX';
 
 export default function Home() {
 
@@ -80,6 +82,8 @@ export default function Home() {
       <SpecialOffer width={width} stars={stars}/>
       <Blog width={width}/>
       <TripPlanners width={width} stars={stars} isMobile={isMobile}/>
+      <Gallery width={width}/>
+      <Experiences stars={stars}/>
     </div>
   )
 }
