@@ -24,13 +24,13 @@ export default function Experiences({stars}) {
             avatar: '/images/icons/avatar-3.svg'
         },
         {
-            name: 'John Doe',
+            name: 'John Martin',
             occupation: 'Musician',
             stars: 5,
             avatar: '/images/icons/avatar-1.svg'
         },
         {
-            name: 'John Smith',
+            name: 'John Ribeiro',
             occupation: 'Journalist, HWO News',
             stars: 5,
             avatar: '/images/icons/avatar-2.svg'

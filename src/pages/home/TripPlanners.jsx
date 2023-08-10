@@ -88,6 +88,7 @@ export default function TripPlanners({width, stars}) {
             <ul className="slide">
               {tripPlannersInfo.map((item, index)=>{
                 return <li 
+                  key={item.local}
                   className={`point ${index == selected && 'selected'}`} 
                   id={index}
                   onClick={(e)=>{
