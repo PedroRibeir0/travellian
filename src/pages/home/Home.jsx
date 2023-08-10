@@ -8,7 +8,7 @@ import Blog from './Blog';
 import TripPlanners from './TripPlanners';
 import {AiFillStar} from 'react-icons/ai'
 import Gallery from './Gallery';
-import Experiences from './Experiences.JSX';
+import Experiences from './Experiences';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
 
