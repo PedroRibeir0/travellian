@@ -1207,6 +1207,7 @@ nav .login-buttons .sing-up:hover {
 }
 
 .experiences {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -1271,6 +1272,177 @@ nav .login-buttons .sing-up:hover {
   font-weight: 400;
   color: #767E86;
   font-family: "Playfair Display", serif;
+}
+
+.newsletter {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 25px;
+  width: 90%;
+  padding: 40px 20px;
+  margin: 80px auto;
+  border-radius: 26px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+@media screen and (min-width: 1152px) {
+  .newsletter {
+    width: 70%;
+    padding: 60px 40px;
+  }
+}
+.newsletter h2.main-h2 {
+  color: #767E86;
+  width: 60%;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 1152px) {
+  .newsletter h2.main-h2 {
+    padding-left: 0;
+  }
+}
+.newsletter .newsletter-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 25px;
+}
+@media screen and (min-width: 768px) {
+  .newsletter .newsletter-form {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+.newsletter .input-group {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .newsletter .input-group {
+    flex-basis: 70%;
+  }
+}
+.newsletter .input-group label {
+  font-size: 20px;
+  font-weight: 400;
+  color: #767E86;
+  font-family: "Rubik", sans-serif;
+}
+.newsletter .input-group input {
+  font-size: 20px;
+  font-weight: 400;
+  color: #172432;
+  font-family: "Rubik", sans-serif;
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: #ffe4c8;
+  padding: 24px 22px;
+  border-radius: 12px;
+}
+.newsletter .input-group input::-moz-placeholder {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FF7757;
+  font-family: "Rubik", sans-serif;
+}
+.newsletter .input-group input::placeholder {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FF7757;
+  font-family: "Rubik", sans-serif;
+}
+.newsletter .subscribe-button {
+  font-size: 20px;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-family: "Rubik", sans-serif;
+  border: none;
+  border-radius: 12px;
+  background-color: #FF7757;
+  width: 100%;
+  padding: 20px 0;
+}
+@media screen and (min-width: 768px) {
+  .newsletter .subscribe-button {
+    padding: 24px 0;
+    flex-basis: 30%;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 45px;
+  padding: 100px 20px 20px 20px;
+  width: 100%;
+  background-color: #172432;
+  padding-bottom: 80px;
+}
+@media screen and (min-width: 1152px) {
+  footer {
+    flex-direction: row;
+    gap: 60px;
+  }
+}
+footer .logo-copy {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+footer .logo-copy .logo {
+  width: 234px;
+}
+footer .logo-copy .copyright {
+  font-size: 14px;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-family: "Rubik", sans-serif;
+}
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #FFFFFF;
+  font-family: "Rubik", sans-serif;
+  list-style: none;
+}
+footer ul li {
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+footer ul li:hover {
+  color: #767E86;
+}
+footer ul li:first-child {
+  margin-top: 10px;
+}
+footer .social-icons {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 25px;
+}
+footer .social-icons li img {
+  width: 32px;
+  height: 32px;
 }
 
 .home {

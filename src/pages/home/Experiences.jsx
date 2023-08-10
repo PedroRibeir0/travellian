@@ -23,6 +23,18 @@ export default function Experiences({stars}) {
             stars: 5,
             avatar: '/images/icons/avatar-3.svg'
         },
+        {
+            name: 'John Doe',
+            occupation: 'Musician',
+            stars: 5,
+            avatar: '/images/icons/avatar-1.svg'
+        },
+        {
+            name: 'John Smith',
+            occupation: 'Journalist, HWO News',
+            stars: 5,
+            avatar: '/images/icons/avatar-2.svg'
+        },
     ]
 
     return (

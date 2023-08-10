@@ -1,0 +1,59 @@
+footer{
+    @include flex($direction: column, $items: flex-start, $gap: 45px);
+    padding: 100px 20px 20px 20px;
+    width: 100%;
+    background-color: $dark-blue;
+    padding-bottom: 80px;
+
+    @media screen and (min-width: 1152px){
+        flex-direction: row;
+        gap: 60px;
+    }
+
+    .logo-copy{
+        @include flex($direction: column, $items: flex-start, $gap: 15px);
+
+        .logo{
+            width: 234px;
+        }
+
+        .copyright{
+            @include font(14px, 400, $white, $rubik);
+        }
+    }
+
+    ul{
+        @include flex($direction: column, $items: flex-start, $gap: 12px);
+        @include font(24px, 500, $white, $rubik);
+        list-style: none;
+
+        li{
+            font-size: 18px;
+            font-weight: 400;
+            cursor: pointer;
+
+            &:hover{
+                color: $dark-gray;
+            }
+
+            &:first-child{
+                margin-top: 10px;
+            }
+        }
+    }
+
+
+    .social-icons{
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 25px;
+
+        li img{
+            width: 32px;
+            height: 32px;
+            
+        }
+    }
+
+}
+
