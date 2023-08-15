@@ -22,14 +22,6 @@ export default function Home() {
     
     const handleMenuIconClick = ()=> setIsMenuOpen(true)
 
-    useEffect(()=>{
-
-      const handleResize = ()=> setWidth(window.innerWidth)
-  
-      window.addEventListener('load', handleResize)
-      window.addEventListener('resize', handleResize)
-    }, [width])
-
     useEffect(() => {
         if (!isMobile) return
         if (!isMenuOpen) return;
@@ -48,6 +40,7 @@ export default function Home() {
     
       useEffect(() => {
         function handleResize(){
+          setWidth(window.innerWidth)
           setIsMenuOpen(window.innerWidth >= 1152);
           setIsMobile(window.innerWidth < 1152);
         };
